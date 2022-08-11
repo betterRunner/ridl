@@ -1,0 +1,17 @@
+[package]
+name = "ridl"
+version = "0.1.0"
+description = ""
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/betterRunner/ridl"
+keywords = []
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ridl_utils = {path = "../ridl_utils", version = "0.1.0"}
+ridl_block = {path = "../ridl_block", version = "0.1.0"}
+ridl_parser = {path = "../ridl_parser", version = "0.1.0"}
+
+[dev-dependencies]

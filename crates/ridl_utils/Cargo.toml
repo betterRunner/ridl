@@ -1,0 +1,15 @@
+[package]
+name = "ridl_utils"
+version = "0.1.0"
+description = ""
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/betterRunner/ridl"
+keywords = []
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+regex = "1"
+
+[dev-dependencies]

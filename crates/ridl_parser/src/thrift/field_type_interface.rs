@@ -1,6 +1,6 @@
 use regex::Regex;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum InterfaceFieldType {
   Number,
   Numbers,
@@ -14,13 +14,13 @@ pub enum InterfaceFieldType {
   Unknown,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InterfaceFieldRefer {
   pub refer: String,
   pub namespace: Vec<String>,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct InterfaceFieldMap {
   pub key: Box<InterfaceFieldType>,
   pub value: Box<InterfaceFieldType>,
@@ -68,13 +68,16 @@ impl InterfaceFieldType {
           return (key.to_string(), value.to_string());
         }
 
+        println!("s {:?}", s);
         if Regex::new(re_map).unwrap().is_match(s) {
+          println!("map {:?}", s);
           let (key, value) = get_map_capture(s, re_map);
           InterfaceFieldType::Map(InterfaceFieldMap {
             key: Box::new(InterfaceFieldType::from_str(key.as_str())),
             value: Box::new(InterfaceFieldType::from_str(value.as_str())),
           })
         } else if Regex::new(re_refers).unwrap().is_match(s) {
+          println!("refers {:?}", s);
           let res = get_refer_capture(s, re_refers);
           InterfaceFieldType::Refers(res)
         } else if Regex::new(re_refer).unwrap().is_match(s) {
@@ -85,6 +88,7 @@ impl InterfaceFieldType {
         }
       }
     };
+    println!("res {:?} s {:?}", res, s);
     res
   }
 

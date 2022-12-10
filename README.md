@@ -4,7 +4,7 @@
   </div>
 </p>
 
-<p align="left">[WIP]: Idl (Interactive Data Language) -> Ts Interface & Enum, written in Rust.
+<p align="left">[WIP]: A tool to translate <strong>Idl (Interactive Data Language)</strong> into <strong>Ts Interface & Enum</strong>, written in Rust.
 </p>
 
 ## Supporting format
